@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!
+  skip_before_filter :display_flash_notice, only: ["index"]
   expose_decorated(:posts)
   expose_decorated(:post)
 
