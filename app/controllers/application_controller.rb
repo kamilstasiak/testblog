@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :display_flash_notice
+  before_filter :display_flash_notice, :except => "index"
 
   private
 
