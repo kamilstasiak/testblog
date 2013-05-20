@@ -27,7 +27,15 @@ class User
 
   index({ email: 1 }, { unique: true, background: true })
   validates_presence_of :name
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at
+  validates_presence_of :nickname
+
+  attr_accessible :name, :nickname, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at
 
   field :name, type: String
+  field :nickname, type: String
+
+  def to_s
+    nickname || name
+  end
+
 end
