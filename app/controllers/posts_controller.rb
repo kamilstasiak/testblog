@@ -21,7 +21,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post.destroy
+    if post.user.eql? current_user
+      post.destroy
+    end
     render action: :index
   end
 
@@ -29,6 +31,9 @@ class PostsController < ApplicationController
   end
 
   def mark_archived
+    post.archived = true
+    post.save
+    render action: :show
   end
 
   def create
