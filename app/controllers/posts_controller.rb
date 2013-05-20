@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   expose_decorated(:post)
 
   def index
+    self.posts = Post.where archived: false
   end
 
   def new
