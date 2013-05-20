@@ -15,7 +15,6 @@ gem "decent_decoration"
 gem "pry"
 
 group :assets do
-  gem 'therubyracer'
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
