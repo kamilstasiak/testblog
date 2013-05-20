@@ -34,8 +34,13 @@ class User
   field :name, type: String
   field :nickname, type: String
 
+  def name=(name)
+    write_attribute :name, name
+    write_attribute :nickname, name if self.nickname.nil?
+  end
+
   def to_s
-    nickname || name
+    nickname
   end
 
 end
